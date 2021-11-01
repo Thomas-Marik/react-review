@@ -1,8 +1,14 @@
 import React from 'react';
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 
 const App=()=> {
+    const addExpenseHandler=expense=>{
+     expenses.push(expense);
+     console.log(expenses);
+      
+    }
 
     const expenses=[
       {id:'e1',title: 'Toliet Paper',amount: 94.12, date: new Date(2020, 7 , 14)},
@@ -13,11 +19,18 @@ const App=()=> {
     ]
   return (
     <div>
-      <h2>Let's Get Started!</h2>
-      <p>This is also visable!</p>
+      <NewExpense onAddExpense={addExpenseHandler}/>      
       <Expenses item={expenses}/>
     </div>
   );
 }
 
 export default App;
+
+
+// return React.createElement(
+//   'div',
+//    {},
+//    React.createElement('h2',{},'Lets get Started!'),
+//    React.createElement(Expenses,{items:expenses})
+//    )
